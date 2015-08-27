@@ -1,4 +1,5 @@
 from flask import Flask,render_template,jsonify
+from collections import OrderedDict
 
 app = Flask(__name__)
 
@@ -8,7 +9,7 @@ app.config.from_pyfile('default_config.py')
 app.config.from_envvar('ROMFILTER_SETTINGS',silent=True)
 
 from .generate_gamelist import gen_from_mamedb
-games = gen_from_mamedb(app.config['MAMEDB'])
+games = OrderedDict(sorted(gen_from_mamedb(app.config['MAMEDB']).items()))
 
 @app.route('/')
 def index():
