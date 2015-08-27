@@ -1,5 +1,5 @@
 # Run a test server.
-from romfilter import app
+from romfilter.main import app
 
 # import pdb;pdb.set_trace()
 app.run()
