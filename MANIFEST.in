@@ -1,0 +1,2 @@
+recursive-include romfilter/templates *
+recursive-include romfilter/static *

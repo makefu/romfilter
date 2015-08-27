@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="//static/bootstrap.min.css">
+<script src="//static/jquery.min.js"></script>
+<script src="//static/jquery.fastLiveFilter.js"></script>
+</head>
+<body>
+<script>
+    $(function() {
+        $('#search_input').fastLiveFilter('#search_list');
+    });
+</script>
+<div class="container">
+  <h1>MAME Games Filter</h1>
+  <input id="search_input" placeholder="Type to filter games">
+  <ul id="search_list">
+  {% for game in games %}<li><b>{{game.short}}</b> - {{ game.name}} ({{game.year}}) by {{game.manufacturer}}</li>
+  {% endfor %}
+  </ul>
+</div>
+</body>
+<html>
+
