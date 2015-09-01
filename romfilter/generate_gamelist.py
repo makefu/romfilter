@@ -1,10 +1,26 @@
 #!/usr/bin/env python
 
-def gen_from_mamedb(dbfile):
+import pickle
+def write_cache(dbfile,cachefile):
+    games = gen_from_mamedb(dbfile,None)
+
+    with open(cachefile,"bw+") as c:
+        pickle.dump(games,c)
+
+def load_cache(cachefile):
+    with open(cachefile,"rb") as c:
+        return pickle.load(c)
+
+
+def gen_from_mamedb(dbfile,cachefile=None):
     import xml.etree.ElementTree as ET
     tree = ET.parse(dbfile)
     root = tree.getroot()
     games= {}
+
+    try: return load_cache(cachefile)
+    except Exception as e:print(e)
+
     for game in tree.findall('game'):
         if game.attrib.get('isbios'): continue
         if game.attrib.get('cloneof'): continue
@@ -18,3 +34,4 @@ def gen_from_mamedb(dbfile):
         except: ng['manufacturer'] = 'unknown'
         games[game.attrib['name']] = ng
     return games
+

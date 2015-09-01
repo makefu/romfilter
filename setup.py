@@ -2,12 +2,6 @@ from setuptools import setup
 
 import sys
 
-import twine
-
-
-
-
-
 setup(
     name='romfilter-flask',
     version='0.2.3',

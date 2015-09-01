@@ -14,8 +14,8 @@
 <div class="container">
   <h1>MAME Games Filter</h1>
   <input id="search_input" placeholder="Type to filter games">
-  <ul id="search_list">
-  {% for short,game in games.items() %}<li><b>{{short}}</b> - {{ game.name}} ({{game.year}}) by {{game.manufacturer}}</li>
+  <ul id="search_list" class="list-group" >
+  {% for short,game in games.items() %}<li class="list-group-item"><b>{{short}}</b> - {{ game.name}} ({{game.year}}) by {{game.manufacturer}}</li>
   {% endfor %}
   </ul>
 </div>
