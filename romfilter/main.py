@@ -37,7 +37,11 @@ def gameinfo(game):
 def addgame(game):
     if game in games:
         gameinfo = games[game]
-        copy_rom(app.config['SYNC_LIVEDIR'],app.config['SYNC_ARCHIVEDIR'],game)
+        try:
+            copy_rom(app.config['SYNC_LIVEDIR'],app.config['SYNC_ARCHIVEDIR'],game)
+            return "success"
+        except:
+            return "failure", 500
     else:
         return "no such game",404
 
