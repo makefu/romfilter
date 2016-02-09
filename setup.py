@@ -19,7 +19,6 @@ setup(
     entry_points={ },
     install_requires= [ "Flask" ],
     classifiers=[
-        "Intended Audience :: Developers",
         "Natural Language :: English",
         "Operating System :: POSIX :: Linux",
         "Programming Language :: Python",

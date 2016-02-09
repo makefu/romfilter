@@ -1,0 +1,16 @@
+[Unit]
+Description=Romfilter
+After=network.target
+
+[Service]
+Restart=always
+RestartSec=30
+# change that
+User=shack
+# change this
+WorkingDirectory=/opt/romfilter
+ExecStart=/usr/bin/python3 run.py
+
+[Install]
+Alias=display-manager.service
+WantedBy=multi-user.target
