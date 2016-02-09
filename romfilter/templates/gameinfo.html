@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-md-9 text-center">
+        <!-- contains all the extra information -->
+        <img class=".img-responsive" src="/{{game}}/title"></img>
+    </div>
+    <div class="col-md-2">
+        {% if deployed %}
+            <button type="button" id="deploy_button" class="btn btn-block btn-lg btn-danger pull-right btn-disabled" disabled="disabled">already deployed</button></div>" 
+        {% else %}
+            <button type="button" id="deploy_button" class="btn btn-block btn-lg btn-success pull-right btn-enabled">deploy</button>
+        {% endif %}
+    </div>
+</div>
